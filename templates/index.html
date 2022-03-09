@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>Car price prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>AI based car price predictor by NTAMBWE</h1>
+    <img src="{{url_for('static', filename='car.png')}}" align="middle" width="200px" height="200px"/>
+     <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="car_name" value="Maruti Swift Desire" required="required"/>
+        <input type="text" name="km" placeholder="Enter kilometer driven" required="required"/>
+        <input type="text" name="car_age" placeholder="Enter car age" required="required"/>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict car price</button>
+    </form>
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
+
+
